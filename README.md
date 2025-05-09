@@ -1,5 +1,5 @@
 
-[![NuGet version (Wpf.DarkWindow)](https://img.shields.io/nuget/v/Wpf.DarkWindow?style=flat-square)]
+[![NuGet version (Wpf.DarkWindow)](https://img.shields.io/nuget/v/Wpf.DarkWindow)]
 - [NuGet Package](https://www.nuget.org/packages/Wpf.DarkWindow/1.0.0)
 - [License](LICENSE.txt)
 
