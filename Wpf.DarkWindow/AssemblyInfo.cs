@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Markup;
 
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

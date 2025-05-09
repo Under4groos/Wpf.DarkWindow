@@ -5,6 +5,9 @@ A small library for modifying the visual aspects of application windows in Windo
 Небольшая библиотека для изменения визуальных аспектов окон приложений в операционной системе Windows. Она работает как на Windows 10, так и на Windows 11.
 
 
+
+![enter image description here](assets/Photos_EzpklehVgr.png)
+
 # Wpf.DarkWindow
 
 App.xaml

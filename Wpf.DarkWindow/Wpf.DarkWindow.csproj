@@ -5,6 +5,12 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Title>Wpf.DarkWindow</Title>
+    <Description></Description>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://github.com/Under4groos/Wpf.DarkWindow</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Under4groos/Wpf.DarkWindow</RepositoryUrl>
+    <PackageTags>WPF C#</PackageTags>
   </PropertyGroup>
 
 </Project>
