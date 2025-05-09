@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Wpf.DarkWindow;component/Svg/SvgList.xaml"/>
+        <ResourceDictionary Source="/Wpf.DarkWindow;component/Colors/ButtonColors.xaml"/>
+        <ResourceDictionary Source="/Wpf.DarkWindow;component/Colors/WindowColors.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkWindow;component/Themes/PART_Button.xaml"/>
+        <ResourceDictionary Source="/WPF.DarkWindow;component/Themes/DarkWindow.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

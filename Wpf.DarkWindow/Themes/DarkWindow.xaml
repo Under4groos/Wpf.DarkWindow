@@ -1,0 +1,131 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:Controls="clr-namespace:Wpf.DarkWindow.Controls"
+                    
+                    xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    >
+
+    <Style x:Key="DarkWindow.base" TargetType="{x:Type Controls:DarkWindow}">
+
+        <Setter Property="Background" Value="{DynamicResource window.background.base}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource window.background.border.base}"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Width" Value="1400"/>
+        <Setter Property="Height" Value="720"/>
+        <Setter Property="MinWidth" Value="10"/>
+        <Setter Property="MinHeight" Value="10"/>
+        <Setter Property="shell:WindowChrome.WindowChrome">
+            <Setter.Value>
+                <shell:WindowChrome CaptionHeight="30" CornerRadius="8"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate  TargetType="{x:Type Controls:DarkWindow}">
+                    <Border  BorderThickness="1" CornerRadius="8"
+        BorderBrush="{TemplateBinding BorderBrush}" >
+
+
+                        <Grid>
+                            <Border x:Name="PART_WindowBackground" CornerRadius="8" Background="{TemplateBinding Background}"/>
+                            <Border Panel.ZIndex="-10" CornerRadius="8" >
+                                <Border.Background>
+                                    <ImageBrush Opacity="0.4"  x:Name="PART_BackgroundImage"/>
+
+
+                                </Border.Background>
+                                <Border.Effect>
+                                    <BlurEffect x:Name="PART_BackgroundBlur"/>
+                                </Border.Effect>
+                            </Border>
+
+                            <Grid x:Name="_base_">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Border  Height="35" Margin="0,0,1,0" Name="PART_Title">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel  Orientation="Horizontal">
+                                            <StackPanel  Margin="5,0,0,0" VerticalAlignment="Center"  Orientation="Horizontal" >
+
+                                                <Grid Width="25" Height="25" Visibility="Collapsed">
+                                                    <Grid.Clip>
+                                                        <RectangleGeometry RadiusX="4" RadiusY="4" Rect="0,0,25,25"/>
+                                                    </Grid.Clip>
+                                                    <Image Source="{TemplateBinding Icon}" Stretch="UniformToFill"/>
+                                                </Grid>
+                                                <ContentControl Panel.ZIndex="-10" Margin="30,0,10,0" VerticalAlignment="Center" Foreground="White" TextBlock.FontSize="12" Content="{TemplateBinding Title}"/>
+
+                                            </StackPanel>
+                                            <StackPanel  Margin="10,4,0,4" x:Name="PART_LeftItems" Orientation="Horizontal" HorizontalAlignment="Left">
+
+
+                                            </StackPanel>
+                                        </StackPanel>
+
+
+                                        <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
+                                            <StackPanel Margin="10,4,5,4" x:Name="PART_RightItems" Orientation="Horizontal">
+
+                                            </StackPanel>
+                                            <Controls:PART_Button x:Name="PART_MinButton"  Style="{DynamicResource PART_Button.base}">
+                                                <Path Margin="5" Height="2" Stretch="Uniform" Fill="{Binding ButtonBrush, RelativeSource={RelativeSource AncestorType=Controls:DarkWindow}}" Data="{DynamicResource svgico.hide}"/>
+                                            </Controls:PART_Button>
+
+
+
+
+
+                                            <Controls:PART_Button x:Name="PART_RestoreButton" Style="{DynamicResource PART_Button.base}">
+                                                <Path Margin="5" Height="11" Stretch="Uniform" Stroke="{Binding ButtonBrush, RelativeSource={RelativeSource AncestorType=Controls:DarkWindow}}" Data="{DynamicResource svgico.min_max}"/>
+                                            </Controls:PART_Button>
+
+
+                                            <Controls:PART_Button x:Name="PART_MaxButton" Style="{DynamicResource PART_Button.base}">
+                                                <Path Margin="5" Height="11" Stretch="Uniform" Stroke="{Binding ButtonBrush, RelativeSource={RelativeSource AncestorType=Controls:DarkWindow}}" Data="{DynamicResource svgico.min_max}"/>
+                                            </Controls:PART_Button>
+
+
+                                            <Controls:PART_Button CornerRadius="4,8,4,4"  x:Name="PART_CloseButton" Style="{DynamicResource PART_Button.base}">
+                                                <Path Margin="5" Height="11" Stretch="Uniform" Fill="{Binding CloseButtonBrush, RelativeSource={RelativeSource AncestorType=Controls:DarkWindow}}" Data="{DynamicResource svgico.close}"/>
+                                            </Controls:PART_Button>
+
+
+
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+
+                                <ContentPresenter  Margin="{TemplateBinding Padding}" Grid.Row="1"></ContentPresenter>
+                            </Grid>
+                        </Grid>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="PART_MaxButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_RestoreButton" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="_base_" Property="Margin" Value="7"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter TargetName="PART_MaxButton" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_RestoreButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_MinButton"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_RestoreButton"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_MaxButton"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
