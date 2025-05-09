@@ -1,4 +1,7 @@
 
+[![NuGet version (Wpf.DarkWindow)](https://img.shields.io/nuget/v/Wpf.DarkWindow?style=flat-square)]
+- [NuGet Package](https://www.nuget.org/packages/Wpf.DarkWindow/1.0.0)
+- [License](LICENSE.md)
 
 A small library for modifying the visual aspects of application windows in Windows OS. It works on both Windows 10 and Windows 11.
 
